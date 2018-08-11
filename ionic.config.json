@@ -1,5 +1,7 @@
 {
   "name": "ionic-custom-webpack-config",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
