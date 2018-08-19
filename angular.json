@@ -14,7 +14,8 @@
           "builder": "angular-ionic-cli-builders:custom-webpack-browser",
           "options": {
             "customWebpackConfig": {
-              "path": "./extra-webpack.config.js"
+              "path": "./extra-webpack.config.js",
+              "mergeStrategies": { "loaders": "append" }
             },
             "progress": false,
             "outputPath": "www",

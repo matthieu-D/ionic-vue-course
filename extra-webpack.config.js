@@ -1,3 +1,5 @@
+const { VueLoaderPlugin } = require('vue-loader');
+
 console.log('The custom config is used');
 
 const vueAlias = {
@@ -23,6 +25,7 @@ const vueRule = [{
 
 module.exports = {
   resolve: vueAlias,
+  plugins: [new VueLoaderPlugin()],
   module: {
     rules: vueRule
   }
