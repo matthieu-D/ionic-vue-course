@@ -11,6 +11,7 @@
   <meta name="msapplication-tap-highlight" content="no">
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png">
+  <script src="https://unpkg.com/@ionic/core@4.0.0-beta.3/dist/ionic.js"></script>
 
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,7 +22,8 @@
     <div id="app">
       
       <!-- Begin: http://localhost:3000/using-vue-with-ionic-4-and-ionic-native-plugins/ -->
-        <button @click="getPosition()">
+      
+        <!-- <button @click="getPosition()">
             Get Position
          </button>
      
@@ -43,13 +45,44 @@
      
            </ion-card-content>
      
-         </ion-card>
+         </ion-card> -->
+
         <!-- End: http://localhost:3000/using-vue-with-ionic-4-and-ionic-native-plugins/ -->
 
+        <!-- Begin: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-services/ -->
+
+        <!-- <button @click="useVanillaJsService">
+          Use Vanilla JavaScript Service
+        </button>
+        <component-one></component-one>
+        <component-two></component-two>
+        <first-component></first-component>
+        <second-component></second-component> -->
+        
+        <!-- End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-services/ -->
+
+        <!-- Begin: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-directives/ -->
+
+        <div v-custom-show="{ display: false, delay: 4000 }">
+          Custom Show
+        </div>
+
+        <div v-custom-show='false'>
+          Custom Show
+        </div>
+        
+        <div v-custom-if:4000 :display='false'>
+          Custom If
+        </div>
+
+        <!-- End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-directives/ -->
+
         <!-- Begin: https://javascripttuts.com/vue-as-an-angular-alternative-for-ionic-the-components/ -->
+
         <!-- <simple-ts-component></simple-ts-component>
         <global-component></global-component>
         <component-with-methods></component-with-methods> -->
+
         <!-- End: https://javascripttuts.com/vue-as-an-angular-alternative-for-ionic-the-components/-->
 
       </div>
