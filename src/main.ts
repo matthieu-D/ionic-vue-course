@@ -95,22 +95,40 @@ import Vue from "vue";
 
 // End: https://javascripttuts.com/vue-as-an-angular-alternative-for-ionic-the-services/ 
 
-import CustomShow from "./app/custom-show";
-import CustomIfModule from "./app/custom-if";
+// import CustomShow from "./app/custom-show";
+// import CustomIfModule from "./app/custom-if";
 
-const CustomIf = CustomIfModule["custom-if"];
+// const CustomIf = CustomIfModule["custom-if"];
 
-Vue.directive("CustomShow", {
-  bind: function(el, binding, vnode) {
-    const display = binding.value ? "block" : "none";
-    el.style.display = display;
-  }
-});
+// Vue.directive("CustomShow", {
+//   bind: function(el, binding, vnode) {
+//     const display = binding.value ? "block" : "none";
+//     el.style.display = display;
+//   }
+// });
 
-var app = new Vue({
-  el: "#app",
-  directives: { CustomShow, CustomIf }
-});
+// var app = new Vue({
+//   el: "#app",
+//   directives: { CustomShow, CustomIf }
+// });
+
+
+// End: https://javascripttuts.com/vue-as-an-angular-alternative-for-ionic-the-services/ 
+
+//  Begin: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-parent-children-communication/ 
+
+// import TsParentNode from "./app/parent-children/typescript-components/parent-node";
+// import VueParentNode from "./app/parent-children/vue-components/parent-node.vue";
+
+// var app = new Vue({
+//   el: "#app",
+//   components: {
+//     TsParentNode,
+//     VueParentNode
+//   }
+// });
+
+// End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-parent-children-communication/ 
 
 // Begin: https://javascripttuts.com/vue-as-an-angular-alternative-for-ionic-the-components/ 
 
@@ -127,3 +145,69 @@ var app = new Vue({
 // });
 
 // End: https://javascripttuts.com/vue-as-an-angular-alternative-for-ionic-the-components/ 
+
+
+// Begin: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-vuex-in-one-go/ 
+
+// import Vuex from "vuex";
+// Vue.use(Vuex);
+
+// const store = new Vuex.Store({
+//   state: {
+//     count: 0
+//   },
+//   mutations: {
+//     increment(state, payload) {
+//       state.count += payload;
+//     },
+//     decrement(state, payload) {
+//       state.count -= payload;
+//     }
+//   }
+// });
+
+// var app = new Vue({
+//   el: "#app",
+//   store,
+//   methods: {
+//     incrementCounter: function() {
+//       this.$store.commit("increment", 1);
+//     },
+//     decrementCounter: function() {
+//       this.$store.commit("decrement", 1);
+//     }
+//   }
+// });
+
+// End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-vuex-in-one-go/ 
+
+// Begin: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-filters/
+
+import TsSum from "./app/typescript-filters/sum.filter";
+import VanillaSum from "./app/vanilla-filters/sum.filter";
+
+
+var app = new Vue({
+  el: "#app",
+  filters: {
+    TsSum,
+    VanillaSum
+  },
+  computed: {
+    computedSum: function () {
+      return this.originalValue + 1;
+    }
+  },
+  methods: {
+    useSumFilter: function () {
+      const vanilaSumFunction = this.$options.filters["VanillaSum"];
+      return vanilaSumFunction(1, 2, 3);
+    }
+  },
+  data: function() {
+    return { originalValue: 0 };
+  }
+});
+
+// End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-filters/
+
