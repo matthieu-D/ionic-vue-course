@@ -125,6 +125,16 @@
 
         <!-- End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-filters/ -->
 
+        <!-- Begin: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-routing-part-1/ -->
+
+        <router-link to="/about">About</router-link>
+        <router-link to="/about/1">About user 1</router-link>
+        <router-link to="/contact/1">Contact user 1</router-link>
+        <router-link :to="{name: 'white'}">Go to the same named route</router-link>
+
+        <router-view></router-view>
+
+        <!-- End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-routing-part-1/ -->
       </div>
 </body>
 </html>

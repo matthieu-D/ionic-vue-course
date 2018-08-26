@@ -183,31 +183,98 @@ import Vue from "vue";
 
 // Begin: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-filters/
 
-import TsSum from "./app/typescript-filters/sum.filter";
-import VanillaSum from "./app/vanilla-filters/sum.filter";
+// import TsSum from "./app/typescript-filters/sum.filter";
+// import VanillaSum from "./app/vanilla-filters/sum.filter";
 
 
-var app = new Vue({
-  el: "#app",
-  filters: {
-    TsSum,
-    VanillaSum
-  },
-  computed: {
-    computedSum: function () {
-      return this.originalValue + 1;
-    }
-  },
-  methods: {
-    useSumFilter: function () {
-      const vanilaSumFunction = this.$options.filters["VanillaSum"];
-      return vanilaSumFunction(1, 2, 3);
-    }
-  },
-  data: function() {
-    return { originalValue: 0 };
-  }
-});
+// var app = new Vue({
+//   el: "#app",
+//   filters: {
+//     TsSum,
+//     VanillaSum
+//   },
+//   computed: {
+//     computedSum: function () {
+//       return this.originalValue + 1;
+//     }
+//   },
+//   methods: {
+//     useSumFilter: function () {
+//       const vanilaSumFunction = this.$options.filters["VanillaSum"];
+//       return vanilaSumFunction(1, 2, 3);
+//     }
+//   },
+//   data: function() {
+//     return { originalValue: 0 };
+//   }
+// });
 
 // End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-the-filters/
+
+// Begin: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-routing-part-1/
+
+import VueRouter from "vue-router";
+
+Vue.use(VueRouter);
+
+const About = {
+  template: "<div>About view</div>",
+  mounted: function() {
+    console.log("Welcome to the About view");
+    const userId = this.$route.params.id;
+
+    if (userId) {
+      console.log("You are viewing the user:", userId);
+    }
+  },
+  destroyed: function() {
+    console.log("Thanks for visiting to the About view");
+  }
+};
+
+const Contact = {
+  props: ["id"],
+  template: "<div>Contact view</div>",
+  mounted: function() {
+    console.log("Welcome to the Contact view");
+    const userId = this.id;
+
+    if (userId) {
+      console.log("You are viewing the user", userId);
+    }
+  },
+  destroyed: function() {
+    console.log("Thanks for visiting to the Contact view");
+  }
+};
+
+const NamedRoute = {
+  template: "<div>Named route content</div>"
+};
+
+const routes = [
+  {
+    path: "/about/create",
+    component: About
+  },
+  {
+    path: "/about/:id",
+    component: About
+  },
+  {
+    path: "/contact/:id",
+    component: Contact,
+    props: true
+  },
+  {
+    path: "/black",
+    name: "white",
+    component: NamedRoute
+  }
+];
+
+const router = new VueRouter({ routes });
+
+const app = new Vue({ router }).$mount("#app");
+// End: https://javascripttuts.com/using-vue-as-an-angular-alternative-for-ionic-routing-part-1/
 
